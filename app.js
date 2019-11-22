@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
-let RedisStore = require('connect-redis')(session);
+//let RedisStore = require('connect-redis')(session);
 var redis = require('redis').createClient();
 var formidable = require('formidable');
 var path = require('path');
@@ -53,11 +53,12 @@ app.set('view engine', 'ejs');
 //     saveUninitialized:true
 //   }));
 
-  app.use(session({
-    store: new RedisStore({ url: process.env.REDIS_URL }),
-    resave:true,
-    saveUninitialized:true
-  }));
+  // app.use(session({
+  //   store: new RedisStore({ url: process.env.REDIS_URL }),
+  //   secret: '',
+  //   resave:true,
+  //   saveUninitialized:true
+  // }));
 
 app.use(logger('dev'));
 app.use(express.json());
