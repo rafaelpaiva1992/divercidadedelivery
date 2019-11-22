@@ -46,19 +46,18 @@ app.use(function(req, res, next){
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(session({
-    store: new RedisStore({ host: 'localhost', port: 6379, client: redis }),
-    secret: 'p@ssw0rd',
+// app.use(session({
+//     store: new RedisStore({ host: 'localhost', port: 6379, client: redis }),
+//     secret: 'p@ssw0rd',
+//     resave:true,
+//     saveUninitialized:true
+//   }));
+
+  app.use(session({
+    store: new RedisStore({ url: process.env.REDIS_URL }),
     resave:true,
     saveUninitialized:true
   }));
-
-  // app.use(session({
-  //   store: new RedisStore({ host: redisUrl.hostname, port: redisUrl.port, porta: redisUrl.port, db: redisAuth [0], pass: redisAuth [1] }),
-  //   secret: 'password', 
-  //   resave:true,
-  //   saveUninitialized:true
-  // }));
 
 app.use(logger('dev'));
 app.use(express.json());
