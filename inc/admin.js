@@ -70,9 +70,9 @@ module.exports = {
             active:false
             },
             {
-            text: "E-mails",
-            href:"/admin/emails",
-            icon:"envelope",
+            text: "Apis",
+            href:"/admin/api",
+            icon:"cog",
             active:false
             }
 

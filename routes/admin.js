@@ -131,9 +131,11 @@ router.delete('/contacts/:id', function(req, res, next){
 
 
 
-router.get('/emails', function(req, res, next) {
+router.get('/api', function(req, res, next) {
 
     res.render("admin/emails", admin.getParams(req));
+
+   // return 'https://api-all2.azurewebsites.net/api/lanche';
  
 });
 
